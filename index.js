@@ -26,3 +26,10 @@ function getHumanChoice(){
 
 }
 
+
+let playerScore = 0;
+let computerScore = 0;
+
+const playerChoice = getHumanChoice();
+const computerChoice = getComputerChoice();
+
