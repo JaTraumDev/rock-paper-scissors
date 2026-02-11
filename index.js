@@ -66,6 +66,8 @@ function playRound(playerChoice, computerChoice){
 
 function playGame(roundLength){
 
+    let restart = false;
+
     let roundCounter = 0;
     
     while(roundCounter != roundLength){
@@ -87,18 +89,23 @@ function playGame(roundLength){
             roundCounter--;
             restart = false;
         }
-
     }
-
 }
 
+function gameDecider(){
+    if(playerScore > computerScore){
+        console.log("Player Won the Game!");
+    } else{
+        console.log("Computer Won the Game!");
+    }
+}
 
 let playerScore = 0;
 let computerScore = 0;
 
-let restart = false;
+playGame(5);
+gameDecider();
 
-playGame(3);
 
 
 
