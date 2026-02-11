@@ -10,4 +10,19 @@ function getComputerChoice(){
     }
 }
 
+function getHumanChoice(){
+    choice = prompt("Rock (0), paper (1) or Scissors (2)");
+
+    switch (parseInt(choice)){
+        case 0, "Rock":
+            return "Rock";
+        case 1, "Paper":
+            return "Paper";
+        case 2, "Scissors":
+            return "Scissors";
+         default:
+            return "not valid number";
+    }
+
+}
 
