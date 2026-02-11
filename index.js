@@ -13,23 +13,75 @@ function getComputerChoice(){
 function getHumanChoice(){
     choice = prompt("Rock (0), paper (1) or Scissors (2)");
 
-    switch (parseInt(choice)){
-        case 0, "Rock":
-            return "Rock";
-        case 1, "Paper":
-            return "Paper";
-        case 2, "Scissors":
-            return "Scissors";
-         default:
-            return "not valid number";
+    if(parseInt(choice) === 0){
+        return "Rock";
+    } else if(parseInt(choice) === 1){
+        return "Paper"
+    } else if (parseInt(choice) === 2){
+        return "Scissors";
+    } else {
+        return "Invalid"
     }
 
+}
+
+function choiceChecker(playerChoice, computerChoice){
+    if (playerChoice === "Rock"){
+        if(computerChoice === "Paper"){
+            computerScore++;
+            console.log("Computer Won!");
+        } else if(computerChoice === "Scissors"){
+            playerScore++;
+            console.log("Player Won!");
+        } else {
+            console.log("Draw!");
+        }
+    } else if (playerChoice === "Paper"){
+        if(computerChoice === "Scissors"){
+            computerScore++;
+            console.log("Computer Won!");
+        } else if(computerChoice === "Rock"){
+            playerScore++;
+            console.log("Player Won!");
+        } else {
+            console.log("Draw!");
+        }
+    } else if (playerChoice === "Scissors") {
+        if(computerChoice === "Rock"){
+            computerScore++;
+            console.log("Computer Won!");
+        } else if(computerChoice === "Paper"){
+            playerScore++;
+            console.log("Player Won!");
+        } else {
+            console.log("Draw!");
+        }
+    } else {
+        console.log("could'nt finish game properly.");
+        console.log("restarting Round!");
+    }
+    
 }
 
 
 let playerScore = 0;
 let computerScore = 0;
 
-const playerChoice = getHumanChoice();
-const computerChoice = getComputerChoice();
+restart = true;
+
+while(playerScore < 1 && computerScore < 1){
+    const playerChoice = getHumanChoice();
+    const computerChoice = getComputerChoice();
+
+    console.log("Player chose " + playerChoice);
+    console.log("Computer chose " + computerChoice);
+
+    
+    choiceChecker(playerChoice, computerChoice);
+    
+    console.log("Player Score: " + playerScore);
+    console.log("Computer Score: " + computerScore);
+
+}
+
 
