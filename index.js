@@ -95,8 +95,10 @@ function playGame(roundLength){
 function gameDecider(){
     if(playerScore > computerScore){
         console.log("Player Won the Game!");
-    } else{
+    } else if(playerScore < computerScore){
         console.log("Computer Won the Game!");
+    } else{
+        console.log("Nobody Won... damn...")
     }
 }
 
