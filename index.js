@@ -13,11 +13,11 @@ function getComputerChoice(){
 function getHumanChoice(){
     choice = prompt("Rock (0), paper (1) or Scissors (2)");
 
-    if(parseInt(choice) === 0){
+    if(parseInt(choice) === 0 || choice.toUpperCase() === "ROCK"){
         return "Rock";
-    } else if(parseInt(choice) === 1){
+    } else if(parseInt(choice) === 1 || choice.toUpperCase() === "PAPER"){
         return "Paper"
-    } else if (parseInt(choice) === 2){
+    } else if (parseInt(choice) === 2 || choice.toUpperCase() === "SCISSORS"){
         return "Scissors";
     } else {
         return "Invalid"
@@ -25,7 +25,7 @@ function getHumanChoice(){
 
 }
 
-function choiceChecker(playerChoice, computerChoice){
+function playRound(playerChoice, computerChoice){
     if (playerChoice === "Rock"){
         if(computerChoice === "Paper"){
             computerScore++;
@@ -59,29 +59,47 @@ function choiceChecker(playerChoice, computerChoice){
     } else {
         console.log("could'nt finish game properly.");
         console.log("restarting Round!");
+        restart = true;
     }
     
+}
+
+function playGame(roundLength){
+
+    let roundCounter = 0;
+    
+    while(roundCounter != roundLength){
+        const playerChoice = getHumanChoice();
+        const computerChoice = getComputerChoice();
+
+        console.log("Player chose " + playerChoice);
+        console.log("Computer chose " + computerChoice);
+
+        
+        playRound(playerChoice, computerChoice);
+        
+        console.log("Player Score: " + playerScore);
+        console.log("Computer Score: " + computerScore);
+
+        roundCounter++;
+
+        if(restart === true){
+            roundCounter--;
+            restart = false;
+        }
+
+    }
+
 }
 
 
 let playerScore = 0;
 let computerScore = 0;
 
-restart = true;
+let restart = false;
 
-while(playerScore < 1 && computerScore < 1){
-    const playerChoice = getHumanChoice();
-    const computerChoice = getComputerChoice();
+playGame(3);
 
-    console.log("Player chose " + playerChoice);
-    console.log("Computer chose " + computerChoice);
 
-    
-    choiceChecker(playerChoice, computerChoice);
-    
-    console.log("Player Score: " + playerScore);
-    console.log("Computer Score: " + computerScore);
-
-}
 
 
