@@ -25,6 +25,9 @@ function getHumanChoice(){
 }
 
 function playRound(playerChoice, computerChoice){
+    console.log("Player chose " + playerChoice);
+    console.log("Computer chose " + computerChoice);
+
     if (playerChoice === "Rock"){
         if(computerChoice === "Paper"){
             computerScore++;
@@ -72,10 +75,6 @@ function playGame(roundLength){
     while(roundCounter != roundLength){
         const playerChoice = getHumanChoice();
         const computerChoice = getComputerChoice();
-
-        console.log("Player chose " + playerChoice);
-        console.log("Computer chose " + computerChoice);
-
         
         playRound(playerChoice, computerChoice);
         
@@ -94,6 +93,8 @@ function playGame(roundLength){
 let playerScore = 0;
 let computerScore = 0;
 
+const roundLength = 5;
+
 const rock = document.querySelector("#rock");
 const paper = document.querySelector("#paper");
 const scissors = document.querySelector("#scissors");
@@ -107,6 +108,12 @@ paper.addEventListener("click", () => {
 scissors.addEventListener("click",  () => {
     playRound("Scissors", getComputerChoice())
 });
+
+while(roundCounter != roundLength){
+
+}
+
+
 
 
 
