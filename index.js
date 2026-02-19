@@ -1,5 +1,5 @@
 function getComputerChoice(){
-    random = Math.random();
+    const random = Math.random();
     if(random < 1/3){
         return "Rock";
     } else if(random > 1/3 && random < 2/3){
