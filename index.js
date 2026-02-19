@@ -59,6 +59,8 @@ function onPlayerChoice(playerChoice){
         
     console.log("Player Score: " + playerScore);
     console.log("Computer Score: " + computerScore);
+
+    updateScore();
     
     gameDecider(roundLength, playerScore, computerScore);
 }
@@ -71,10 +73,17 @@ function gameDecider(roundLength, playerScore, computerScore){
         
         if(playerScore > computerScore){
             result.textContent = "Player Won the Game!";
+            result.style.color = "blue";
         } else if(playerScore < computerScore){
             result.textContent = "Computer Won the Game!";
+            result.style.color = "red";
         }
     }
+}
+
+function updateScore(){
+    playerScoreDisplay.textContent = `Player Score: ${playerScore}`;
+    computerScoreDisplay.textContent = `Computer Score: ${computerScore}`;
 }
 
 let playerScore = 0;
@@ -86,7 +95,12 @@ const rock = document.querySelector("#rock");
 const paper = document.querySelector("#paper");
 const scissors = document.querySelector("#scissors");
 
+const playerScoreDisplay = document.querySelector("#player");
+const computerScoreDisplay = document.querySelector("#computer");
+
 const result = document.querySelector("#result");
+
+updateScore();
 
 rock.addEventListener("click", () =>{
     onPlayerChoice("Rock");
