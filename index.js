@@ -9,21 +9,6 @@ function getComputerChoice(){
     }
 }
 
-function getHumanChoice(){
-    choice = prompt("Rock (0), paper (1) or Scissors (2)");
-
-    if(parseInt(choice) === 0 || choice.toUpperCase() === "ROCK"){
-        return "Rock";
-    } else if(parseInt(choice) === 1 || choice.toUpperCase() === "PAPER"){
-        return "Paper"
-    } else if (parseInt(choice) === 2 || choice.toUpperCase() === "SCISSORS"){
-        return "Scissors";
-    } else {
-        return "Invalid"
-    }
-
-}
-
 function playRound(playerChoice, computerChoice){
 
     console.log("Player chose " + playerChoice);
@@ -66,27 +51,6 @@ function playRound(playerChoice, computerChoice){
     }
 
     
-}
-
-function playGame(roundLength){
-
-    let restart = false;
-
-    let roundCounter = 0;
-    
-    while(roundCounter != roundLength){
-        const playerChoice = getHumanChoice();
-        const computerChoice = getComputerChoice();
-        
-        playRound(playerChoice, computerChoice);
-
-        roundCounter++;
-
-        if(restart === true){
-            roundCounter--;
-            restart = false;
-        }
-    }
 }
 
 function onPlayerChoice(playerChoice){
