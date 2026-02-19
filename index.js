@@ -2,7 +2,7 @@ function getComputerChoice(){
     const random = Math.random();
     if(random < 1/3){
         return "Rock";
-    } else if(random > 1/3 && random < 2/3){
+    } else if(random < 2/3){
         return "Paper";
     } else {
         return "Scissors"
@@ -54,12 +54,12 @@ function playRound(playerChoice, computerChoice){
 }
 
 function onPlayerChoice(playerChoice){
+
     playRound(playerChoice, getComputerChoice());
         
     console.log("Player Score: " + playerScore);
     console.log("Computer Score: " + computerScore);
-
-    roundCounter++;
+    
     gameDecider(roundLength, playerScore, computerScore);
 }
 
@@ -82,7 +82,6 @@ function gameDecider(roundLength, playerScore, computerScore){
 let playerScore = 0;
 let computerScore = 0;
 
-let roundCounter = 0;
 const roundLength = 5;
 
 
