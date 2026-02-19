@@ -84,7 +84,6 @@ let computerScore = 0;
 
 const roundLength = 5;
 
-
 const rock = document.querySelector("#rock");
 const paper = document.querySelector("#paper");
 const scissors = document.querySelector("#scissors");
