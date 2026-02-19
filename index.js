@@ -17,32 +17,32 @@ function playRound(playerChoice, computerChoice){
     if (playerChoice === "Rock"){
         if(computerChoice === "Paper"){
             computerScore++;
-            console.log("Computer Won!");
+            result.textContent = "Computer Won!";
         } else if(computerChoice === "Scissors"){
             playerScore++;
-            console.log("Player Won!");
+            result.textContent = "Player Won!";
         } else {
-            console.log("Draw!");
+            result.textContent = "Draw!";
         }
     } else if (playerChoice === "Paper"){
         if(computerChoice === "Scissors"){
             computerScore++;
-            console.log("Computer Won!");
+            result.textContent = "Computer Won!";
         } else if(computerChoice === "Rock"){
             playerScore++;
-            console.log("Player Won!");
+            result.textContent = "Player Won!";
         } else {
-            console.log("Draw!");
+            result.textContent = "Draw!";
         }
     } else if (playerChoice === "Scissors") {
         if(computerChoice === "Rock"){
             computerScore++;
-            console.log("Computer Won!");
+            result.textContent = "Computer Won!";
         } else if(computerChoice === "Paper"){
             playerScore++;
-            console.log("Player Won!");
+            result.textContent = "Player Won!";
         } else {
-            console.log("Draw!");
+            result.textContent = "Draw!";
         }
     } else {
         console.log("could'nt finish game properly.");
@@ -64,17 +64,15 @@ function onPlayerChoice(playerChoice){
 }
 
 function gameDecider(roundLength, playerScore, computerScore){
-    if((playerScore + computerScore) === roundLength){
+    if(playerScore === roundLength || computerScore === roundLength){
         rock.disabled = true;
         paper.disabled = true;
         scissors.disabled = true;
         
         if(playerScore > computerScore){
-            console.log("Player Won the Game!");
+            result.textContent = "Player Won the Game!";
         } else if(playerScore < computerScore){
-            console.log("Computer Won the Game!");
-        } else{
-            console.log("Nobody Won the Game...");
+            result.textContent = "Computer Won the Game!";
         }
     }
 }
@@ -87,6 +85,8 @@ const roundLength = 5;
 const rock = document.querySelector("#rock");
 const paper = document.querySelector("#paper");
 const scissors = document.querySelector("#scissors");
+
+const result = document.querySelector("#result");
 
 rock.addEventListener("click", () =>{
     onPlayerChoice("Rock");
