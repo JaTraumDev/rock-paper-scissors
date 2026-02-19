@@ -11,8 +11,8 @@ function getComputerChoice(){
 
 function playRound(playerChoice, computerChoice){
 
-    console.log("Player chose " + playerChoice);
-    console.log("Computer chose " + computerChoice);
+    playerChoiceDisplay.textContent = `Player Choose: ${playerChoice}`;
+    computerChoiceDisplay.textContent = `Computer Choose: ${computerChoice}`; 
 
     if (playerChoice === "Rock"){
         if(computerChoice === "Paper"){
@@ -56,9 +56,6 @@ function playRound(playerChoice, computerChoice){
 function onPlayerChoice(playerChoice){
 
     playRound(playerChoice, getComputerChoice());
-        
-    console.log("Player Score: " + playerScore);
-    console.log("Computer Score: " + computerScore);
 
     updateScore();
     
@@ -108,6 +105,9 @@ const scissors = document.querySelector("#scissors");
 
 const playerScoreDisplay = document.querySelector("#player");
 const computerScoreDisplay = document.querySelector("#computer");
+
+const playerChoiceDisplay = document.querySelector("#playerChoice")
+const computerChoiceDisplay = document.querySelector("#computerChoice");
 
 const result = document.querySelector("#result");
 
