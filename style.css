@@ -1,4 +1,4 @@
-#buttons{
+div{
     display: flex;
     justify-content: space-around;
     max-width: 1280px;
