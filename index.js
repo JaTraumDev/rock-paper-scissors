@@ -91,22 +91,22 @@ function playGame(roundLength){
     }
 }
 
-function gameDecider(){
-    if(playerScore > computerScore){
-        console.log("Player Won the Game!");
-    } else if(playerScore < computerScore){
-        console.log("Computer Won the Game!");
-    } else{
-        console.log("Nobody Won... damn...")
-    }
-}
-
 let playerScore = 0;
 let computerScore = 0;
 
-playGame(5);
-gameDecider();
+const rock = document.querySelector("#rock");
+const paper = document.querySelector("#paper");
+const scissors = document.querySelector("#scissors");
 
+rock.addEventListener("click", () =>{
+    playRound("Rock", getComputerChoice());
+});
+paper.addEventListener("click", () => {
+    playRound("Paper", getComputerChoice())
+});
+scissors.addEventListener("click",  () => {
+    playRound("Scissors", getComputerChoice())
+});
 
 
 
