@@ -1,7 +1,16 @@
+
+
 div{
     display: flex;
     justify-content: space-around;
     max-width: 1280px;
     margin: 0 auto;
     padding-block: 10px;
+}
+
+.buttons{
+    padding: 20px;
+    font-size: 4rem;
+    background-color: white;
+    border-radius: 16px;
 }
