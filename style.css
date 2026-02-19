@@ -6,15 +6,33 @@
 
 
 body{
+    height: 98vh;
+    display: flex;
+    justify-content: center;
+    align-items: center; 
     background-color: lightgreen;
 }
 
-div{
+div *{
     display: flex;
     justify-content: space-around;
     max-width: 1280px;
     margin: 0 auto;
     padding-block: 10px;
+    gap: 4rem;
+}
+
+#game-container{
+    
+
+}
+
+#scores{
+    padding-bottom: 0px;
+}
+
+#choice{
+    padding-top: 0px;
 }
 
 #result{
