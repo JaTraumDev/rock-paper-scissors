@@ -25,6 +25,7 @@ function getHumanChoice(){
 }
 
 function playRound(playerChoice, computerChoice){
+
     console.log("Player chose " + playerChoice);
     console.log("Computer chose " + computerChoice);
 
@@ -63,6 +64,7 @@ function playRound(playerChoice, computerChoice){
         console.log("restarting Round!");
         restart = true;
     }
+
     
 }
 
@@ -77,9 +79,6 @@ function playGame(roundLength){
         const computerChoice = getComputerChoice();
         
         playRound(playerChoice, computerChoice);
-        
-        console.log("Player Score: " + playerScore);
-        console.log("Computer Score: " + computerScore);
 
         roundCounter++;
 
@@ -90,28 +89,54 @@ function playGame(roundLength){
     }
 }
 
+function onPlayerChoice(playerChoice){
+    playRound(playerChoice, getComputerChoice());
+        
+    console.log("Player Score: " + playerScore);
+    console.log("Computer Score: " + computerScore);
+
+    roundCounter++;
+    gameDecider(roundLength, playerScore, computerScore);
+}
+
+function gameDecider(roundLength, playerScore, computerScore){
+    if((playerScore + computerScore) === roundLength){
+        rock.disabled = true;
+        paper.disabled = true;
+        scissors.disabled = true;
+        
+        if(playerScore > computerScore){
+            console.log("Player Won the Game!");
+        } else if(playerScore < computerScore){
+            console.log("Computer Won the Game!");
+        } else{
+            console.log("Nobody Won the Game...");
+        }
+    }
+}
+
 let playerScore = 0;
 let computerScore = 0;
 
+let roundCounter = 0;
 const roundLength = 5;
+
 
 const rock = document.querySelector("#rock");
 const paper = document.querySelector("#paper");
 const scissors = document.querySelector("#scissors");
 
 rock.addEventListener("click", () =>{
-    playRound("Rock", getComputerChoice());
+    onPlayerChoice("Rock");
 });
 paper.addEventListener("click", () => {
-    playRound("Paper", getComputerChoice())
+    onPlayerChoice("Paper");
 });
 scissors.addEventListener("click",  () => {
-    playRound("Scissors", getComputerChoice())
+    onPlayerChoice("Scissors");
 });
 
-while(roundCounter != roundLength){
 
-}
 
 
 
