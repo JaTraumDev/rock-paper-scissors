@@ -84,6 +84,17 @@ function gameDecider(roundLength, playerScore, computerScore){
 function updateScore(){
     playerScoreDisplay.textContent = `Player Score: ${playerScore}`;
     computerScoreDisplay.textContent = `Computer Score: ${computerScore}`;
+
+    if(playerScore > computerScore){
+        playerScoreDisplay.style.fontWeight = "600";
+        computerScoreDisplay.style.fontWeight = "400";
+    } else if(playerScore < computerScore){
+        playerScoreDisplay.style.fontWeight = "400";
+        computerScoreDisplay.style.fontWeight = "600";
+    } else {
+        playerScoreDisplay.style.fontWeight = "400";
+        computerScoreDisplay.style.fontWeight = "400";
+    }
 }
 
 let playerScore = 0;
